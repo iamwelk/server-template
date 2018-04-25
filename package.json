@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/iamwelk/server-template#readme",
   "dependencies": {
-    "koa": "^2.5.0"
+    "koa": "^2.5.0",
+    "koa-static": "^4.0.2"
   }
 }
