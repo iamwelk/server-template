@@ -3,6 +3,7 @@ const path = require('path');
 const static = require('koa-static');
 const Router = require('koa-router');
 const cors = require('koa2-cors');
+const bodyParser = require('koa-bodyparser');
 
 const app = new Koa();
 const staticPath = './static';
@@ -11,6 +12,11 @@ let router = new Router();
 router.get('/test', async ctx => {
   ctx.body = {
     message: 'test'
+  }
+});
+router.post('/testPost', async ctx => {
+  ctx.body = {
+    success: true
   }
 });
 
@@ -22,6 +28,7 @@ app
     allowMethods: ['GET', 'POST', 'DELETE', 'PUT'],
     allowHeaders: ['Content-Type', 'Authorization', 'Accept']
   }))
+  .use(bodyParser())
   .use(router.routes())
   .use(router.allowedMethods());
 
