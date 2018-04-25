@@ -1,11 +1,29 @@
 const Koa = require('koa');
 const path = require('path');
 const static = require('koa-static');
+const Router = require('koa-router');
+const cors = require('koa2-cors');
 
 const app = new Koa();
 const staticPath = './static';
 
-app.use(static(path.join(__dirname, staticPath)));
+let router = new Router();
+router.get('/test', async ctx => {
+  ctx.body = {
+    message: 'test'
+  }
+});
+
+app
+  .use(static(path.join(__dirname, staticPath)))
+  .use(cors({
+    origin: 'http://localhost:8080',
+    credentials: true,
+    allowMethods: ['GET', 'POST', 'DELETE', 'PUT'],
+    allowHeaders: ['Content-Type', 'Authorization', 'Accept']
+  }))
+  .use(router.routes())
+  .use(router.allowedMethods());
 
 app.on('error', (err, ctx) => {
   log.error('server error', err);
