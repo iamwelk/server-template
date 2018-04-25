@@ -1,0 +1,26 @@
+{
+  "name": "server-template",
+  "version": "1.0.0",
+  "description": "基于koa创建的一个服务器模板",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamwelk/server-template.git"
+  },
+  "keywords": [
+    "koa",
+    "server"
+  ],
+  "author": "louwenkang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamwelk/server-template/issues"
+  },
+  "homepage": "https://github.com/iamwelk/server-template#readme",
+  "dependencies": {
+    "koa": "^2.5.0"
+  }
+}
